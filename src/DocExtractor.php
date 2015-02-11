@@ -30,6 +30,10 @@ class DocExtractor
 			return implode("\n", $output);
 		}
 
+		if (count($output) === 0) {
+			throw new ExtractorException('Could not extract text from '. $file. ' file.');
+		}
+
 		throw new ExtractorException($output[0]);
 	}
 
