@@ -24,7 +24,7 @@ class DocExtractor
 			throw new ExtractorException('Could not extract text from '. $file. ' file.');
 		}
 
-		exec("antiword $file", $output, $return);
+		exec("antiword $file 2>&1", $output, $return);
 
 		if ($return === 0) {
 			return implode("\n", $output);
